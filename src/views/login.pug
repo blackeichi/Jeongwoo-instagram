@@ -1,4 +1,30 @@
 extends base
 
 block content 
-    h1 login
+    div.loginHome
+        div.loginBox
+            h1.loginTitle Instagram
+            form(method="POST")
+                input#loginId(type="text", placeholder = "전화번호, 사용자 이름 또는 이메일")
+                input#loginPw(type="password", placeholder = "비밀번호")
+                button#loginBtn 로그인
+            div.hrline
+                hr
+                h3 또는
+            div
+                i.fa.fa-facebook-square
+                h2 Facebook으로 로그인
+            h2 비밀번호를 잊으셨나요?
+        div.loginBox_second
+            h2 계정이 없으신가요?
+            a(href="") 가입하기
+        div.login_Download
+            h2 앱을 다운로드하세요 
+            div 
+                div 
+                    span App Store에서
+                    span 다운로드 하기
+                div 
+                    span 다운로드하기
+                    span Google Play
+    script(src="/static/js/login.js") 
