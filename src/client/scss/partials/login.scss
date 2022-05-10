@@ -4,6 +4,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 50px 0;
+}
+.loginTitle {
+  font-size: 45px;
+  font-family: "Playfair Display", serif;
+  margin: 45px 0;
 }
 .loginBox {
   border-radius: 3px;
@@ -14,11 +20,6 @@
   flex-direction: column;
   padding: 20px 50px;
   align-items: center;
-  .loginTitle {
-    font-size: 45px;
-    font-family: "Playfair Display", serif;
-    margin: 45px 0;
-  }
   form {
     width: 100%;
     display: flex;
@@ -136,4 +137,13 @@
       margin: 0 7px;
     }
   }
+}
+.download {
+  cursor: pointer;
+  user-select: none;
+}
+.errorMessage {
+  color: tomato;
+  text-align: center;
+  margin-bottom: 20px;
 }

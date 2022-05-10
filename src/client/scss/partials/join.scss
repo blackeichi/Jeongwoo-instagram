@@ -1,0 +1,29 @@
+.joinTitle {
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  font-family: "Lato", sans-serif;
+}
+.anotherLogin {
+  cursor: pointer;
+  box-sizing: content-box;
+}
+.formLine {
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+
+  hr {
+    width: 100%;
+  }
+  span {
+    position: absolute;
+    padding: 0 10px;
+    background-color: white;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

@@ -1,0 +1,35 @@
+extends base
+
+block content
+    div.loginHome
+        div.loginBox
+            h1.loginTitle Instagram
+            h2.joinTitle 친구들의 사진과 동영상을 보려면 가입하세요.
+            div.anotherLogin
+                i.fa.fa-facebook-square
+                h3 Facebook으로 로그인
+            div.formLine
+                hr
+                span 또는
+            if errorMessage 
+                span.errorMessage=errorMessage
+            form(method="POST")
+                input#id(type="text" name="id" placeholder = "휴대폰 번호 또는 이메일, User ID" required=true minlenth="4" )
+                input#name(type="text" name="name" placeholder = "성명" required=true )
+                input#password(type="password" name="password" placeholder = "비밀번호" required=true minlenth="6" )
+                input#confirmPw(type="password" name="password2" placeholder = "비밀번호 확인" required=true minlenth="6" )
+                button#joinBtn 가입
+        div.loginBox_second
+            h2 계정이 있으신가요?
+            a(href="/") 로그인
+        div.login_Download
+            h2 앱을 다운로드하세요 
+            div 
+                div.download
+                    span App Store에서
+                    span 다운로드 하기
+                div.download
+                    span 다운로드하기
+                    span Google Play
+
+    script(src="/static/js/join.js") 
