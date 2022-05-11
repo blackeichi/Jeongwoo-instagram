@@ -2,6 +2,10 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/partials/login.scss ***!
   \******************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Playfair+Display:ital,wght@1,600&family=Red+Hat+Mono:ital,wght@1,300&display=swap);
+/*!*******************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/partials/header.scss ***!
+  \*******************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Playfair+Display:ital,wght@1,600&family=Red+Hat+Mono:ital,wght@1,300&display=swap);
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/styles.scss ***!
   \**********************************************************************************************************************/
@@ -32,6 +36,15 @@ footer div {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
 }
 /*!*********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/reset.scss ***!
@@ -251,6 +264,7 @@ html {
   color: rgba(0, 0, 0, 0.7);
 }
 .loginBox div {
+  cursor: pointer;
   width: 300px;
   display: flex;
   justify-content: center;
@@ -367,4 +381,82 @@ html {
   background-color: white;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
+}
+/*!***********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/partials/header.scss (1) ***!
+  \***********************************************************************************************************************************/
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px 0;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.headerBox {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.headerLogo {
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+  color: dimgrey;
+  user-select: none;
+}
+
+.serach {
+  position: relative;
+  display: flex;
+}
+.serach .searchBox {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+.serach .searchCancle {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+}
+
+.search_Bar {
+  border: none;
+  background-color: whitesmoke;
+  height: 40px;
+  border-radius: 5px;
+  width: 100%;
+  padding-left: 40px;
+  outline: none;
+}
+
+.tabbar {
+  padding-left: 50px;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  color: darkgray;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.tabbar i {
+  cursor: pointer;
 }

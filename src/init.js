@@ -4,8 +4,11 @@ import globalRouter from "./routers/globalRouter";
 import mongoose from "mongoose";
 import session from "express-session";
 import { localsMiddleware } from "./middleware";
+import MongoStore from "connect-mongo";
+import ectRouter from "./routers/ectRouter";
+require("dotenv").config();
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -28,11 +31,13 @@ app.use(
     secret: "hello",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
 app.use(localsMiddleware);
 app.use("/static", express.static("assets"));
 app.use("/", globalRouter);
+app.use("/users", userRouter);
 
 const handleListening = () =>
   console.log("서버 Listening 성공! http://localhost:" + PORT);
