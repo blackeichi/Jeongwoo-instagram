@@ -2,3 +2,16 @@ extends base
 
 block content
     include partials/header
+    div.formBox
+        img(src="/")#previewImage
+        form.uploadForm(method="POST" enctype="multipart/form-data") 
+            label.fileInput#fileInput(for="inputImage")
+                div
+                    i.class.fa.fa-arrow-circle-o-up
+            input(type="file" name="file" id="inputImage" style="display:none" accept="image/*" required)
+            label(for="text") Content
+            input.txtInput(type="text" name="text" id="text" placeholder = "문구 입력...")
+            label(for="hashtag") Hash tag
+            input.hashInput(type="text" name="hashtags" placeholder=",(콤마)로 구분..")
+            button.uploadBtn 공유하기 
+    script(src="/static/js/upload.js") 

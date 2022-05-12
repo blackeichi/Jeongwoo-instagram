@@ -2,12 +2,15 @@ const searchBar = document.querySelector("input");
 const searchBox = document.getElementById("searchBox");
 const searchCancle = document.getElementById("searchCancle");
 const home = document.querySelector("#tabbar :nth-child(1)");
+const upload = document.querySelector("#tabbar :nth-child(3)");
 searchCancle.style.display = "none";
 
 const path = window.location.pathname;
 
 if (path === "/home") {
   home.style.color = "black";
+} else if (path === "/upload") {
+  upload.style.color = "black";
 }
 
 const handleClick = () => {

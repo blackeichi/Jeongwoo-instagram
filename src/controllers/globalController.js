@@ -1,5 +1,6 @@
 import User from "../Model/User";
 import bcrypt from "bcrypt";
+import Upload from "../Model/Upload";
 
 export const handleLogin = (req, res) => {
   return res.render("login");
@@ -63,4 +64,19 @@ export const getHome = (req, res) => {
 export const logOut = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
+};
+export const getUpload = (req, res) => {
+  return res.render("upload");
+};
+export const postUpload = async (req, res) => {
+  const { text, hashtags } = req.body;
+  const file = req.file;
+  const { _id } = req.session.user;
+  await Upload.create({
+    fileUrl: file ? file.path : fileUrl,
+    text,
+    hashtags,
+    owner: _id,
+  });
+  return res.redirect("/home");
 };

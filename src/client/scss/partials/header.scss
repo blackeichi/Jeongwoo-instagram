@@ -67,5 +67,9 @@ header {
   font-size: 20px;
   i {
     cursor: pointer;
+    transition: ease-in-out color 0.3s;
+  }
+  i:hover {
+    color: black;
   }
 }
