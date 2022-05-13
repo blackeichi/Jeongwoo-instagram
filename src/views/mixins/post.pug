@@ -1,4 +1,12 @@
 mixin post(post)
-    div.postBox
-        a(href="")
-            img(src=)
+    div.postBox_each
+        div.postHeader
+            div
+                if post.owner.avartarUrl
+                    img(src=post.owner.avartarUrl)
+                else
+                    i.fa.fa-user-circle-o
+                span=post.owner.name
+            div 
+                i.fa.fa-bars
+        img.postImg(src=post.fileUrl)

@@ -1,7 +1,10 @@
 extends base
+include mixins/post
 
 block content
     include partials/header
-    div
-        div
+    div.homeBox
+        div.postBox
+            each post in uploads
+                +post(post)
         div

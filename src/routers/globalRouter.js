@@ -8,6 +8,8 @@ import {
   logOut,
   getUpload,
   postUpload,
+  getEditP,
+  postEditP,
 } from "../controllers/globalController";
 import {
   imgUpload,
@@ -34,4 +36,9 @@ globalRouter
   .all(protectorMiddleware)
   .get(getUpload)
   .post(imgUpload.single("file"), postUpload);
+globalRouter
+  .route("/profile")
+  .all(protectorMiddleware)
+  .get(getEditP)
+  .post(postEditP);
 export default globalRouter;

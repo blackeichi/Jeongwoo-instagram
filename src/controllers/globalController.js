@@ -58,8 +58,12 @@ export const postJoin = async (req, res) => {
     });
   }
 };
-export const getHome = (req, res) => {
-  return res.render("home");
+export const getHome = async (req, res) => {
+  const uploads = await Upload.find({})
+    .sort({ createdAt: "desc" })
+    .populate("owner");
+  console.log(uploads);
+  return res.render("home", { uploads });
 };
 export const logOut = (req, res) => {
   req.session.destroy();
@@ -79,4 +83,10 @@ export const postUpload = async (req, res) => {
     owner: _id,
   });
   return res.redirect("/home");
+};
+export const getEditP = (req, res) => {
+  return res.render("profile");
+};
+export const postEditP = (req, res) => {
+  return res.send("hi");
 };

@@ -16,7 +16,17 @@
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/client/scss/styles.scss\");\n/* harmony import */ var _scss_reset_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/reset.scss */ \"./src/client/scss/reset.scss\");\n/* harmony import */ var _scss_partials_login_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/partials/login.scss */ \"./src/client/scss/partials/login.scss\");\n/* harmony import */ var _scss_partials_join_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scss/partials/join.scss */ \"./src/client/scss/partials/join.scss\");\n/* harmony import */ var _scss_partials_header_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scss/partials/header.scss */ \"./src/client/scss/partials/header.scss\");\n/* harmony import */ var _scss_partials_upload_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scss/partials/upload.scss */ \"./src/client/scss/partials/upload.scss\");\n\n\n\n\n\n\nconsole.log(\"hi\");\n\n//# sourceURL=webpack://jeongwoo-instagram/./src/client/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/client/scss/styles.scss\");\n/* harmony import */ var _scss_reset_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/reset.scss */ \"./src/client/scss/reset.scss\");\n/* harmony import */ var _scss_home_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/home.scss */ \"./src/client/scss/home.scss\");\n/* harmony import */ var _scss_partials_login_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scss/partials/login.scss */ \"./src/client/scss/partials/login.scss\");\n/* harmony import */ var _scss_partials_join_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scss/partials/join.scss */ \"./src/client/scss/partials/join.scss\");\n/* harmony import */ var _scss_partials_header_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scss/partials/header.scss */ \"./src/client/scss/partials/header.scss\");\n/* harmony import */ var _scss_partials_upload_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../scss/partials/upload.scss */ \"./src/client/scss/partials/upload.scss\");\n\n\n\n\n\n\n\nconsole.log(\"hi\");\n\n//# sourceURL=webpack://jeongwoo-instagram/./src/client/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/client/scss/home.scss":
+/*!***********************************!*\
+  !*** ./src/client/scss/home.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://jeongwoo-instagram/./src/client/scss/home.scss?");
 
 /***/ }),
 

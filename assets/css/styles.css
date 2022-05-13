@@ -193,6 +193,22 @@ table {
 html {
   padding-bottom: 70px;
 }
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/home.scss ***!
+  \********************************************************************************************************************/
+.homeBox {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+}
+
+.postBox {
+  width: 50%;
+}
+
+.postImg {
+  width: 100%;
+}
 /*!**********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/partials/login.scss (1) ***!
   \**********************************************************************************************************************************/
@@ -400,7 +416,7 @@ header {
 .headerBox {
   padding: 0 10px;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -475,7 +491,7 @@ label {
 }
 
 .formBox {
-  margin-top: 110px;
+  margin-top: 30px;
   width: 90%;
   max-width: 700px;
   height: 650px;
