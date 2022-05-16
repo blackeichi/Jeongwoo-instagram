@@ -62,7 +62,6 @@ export const getHome = async (req, res) => {
   const uploads = await Upload.find({})
     .sort({ createdAt: "desc" })
     .populate("owner");
-  console.log(uploads);
   return res.render("home", { uploads });
 };
 export const logOut = (req, res) => {
@@ -84,8 +83,16 @@ export const postUpload = async (req, res) => {
   });
   return res.redirect("/home");
 };
-export const getEditP = (req, res) => {
-  return res.render("profile");
+export const profile = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  const uploads = await Upload.find({ owner: user._id });
+  const count = uploads.length;
+  console.log(req.session.user);
+  return res.render("profile", { uploads, count, id });
+};
+export const getEditP = async (req, res) => {
+  return res.send("hi");
 };
 export const postEditP = (req, res) => {
   return res.send("hi");
