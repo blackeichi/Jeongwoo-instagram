@@ -1,0 +1,14 @@
+extends base
+
+block content
+    include partials/header
+    div
+        form(method="POST")
+            label(for="avatarImage")
+                div
+                    i.class.fa.fa-arrow-circle-o-up
+            input(type="file" id="avatarImage")
+            input(type="text")
+            input(type="text")
+            input(type="password")
+            button 제출

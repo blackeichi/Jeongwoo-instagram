@@ -93,8 +93,8 @@ export const profile = async (req, res) => {
   return res.render("profile", { uploads, count: uploads.length, id });
 };
 export const getEditP = async (req, res) => {
-  return res.send("hi");
+  return res.render("edit");
 };
 export const postEditP = (req, res) => {
-  return res.send("hi");
+  return null;
 };

@@ -10,8 +10,8 @@ block content
             div.topProfile_1
                 h1=loggedInUser.id
                 if loggedInUser._id === id
-                    a.profileLink(href="") 프로필 편집
-                    a(href="")
+                    a.profileLink(href="/edit") 프로필 편집
+                    a(href="/edit")
                         i.fa.fa-cog
             div.topProfile_2
                 div 
