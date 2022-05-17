@@ -197,17 +197,167 @@ html {
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/home.scss ***!
   \********************************************************************************************************************/
 .homeBox {
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   display: flex;
+  padding-top: 100px;
+  position: relative;
+}
+
+.homeBox_one {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.friendBox {
+  width: 100%;
+  height: 150px;
+  margin: 20px 0;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .postBox {
-  width: 50%;
+  width: 100%;
+}
+
+.postBox_each {
+  margin-bottom: 30px;
+}
+
+.postHeader {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+.postHeader img {
+  width: 20px;
+}
+.postHeader .fa.fa-user-circle-o {
+  font-size: 40px;
+  color: darkgray;
+}
+.postHeader .fa.fa-bars {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.postHeader_profile {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.postHeader_profile span {
+  padding: 10px;
 }
 
 .postImg {
   width: 100%;
+}
+
+.postBottom {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  box-sizing: border-box;
+}
+
+.postBottom_icons {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 25px;
+  justify-content: space-between;
+  padding: 20px 15px;
+  display: flex;
+}
+
+.postBottom_icons_one i {
+  margin-right: 15px;
+}
+
+.postBottom_texts_like {
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+}
+.postBottom_texts_like span {
+  margin-right: 5px;
+}
+
+.postBottom_texts_text {
+  padding: 20px 15px;
+  padding-bottom: 5px;
+}
+.postBottom_texts_text span:first-child {
+  font-weight: 800;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.postBottom_texts_text span {
+  margin-right: 5px;
+}
+
+.postBottom_texts_ect {
+  padding: 0 15px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.postBottom_texts_ect span:nth-child(2) {
+  margin: 14px 0;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+}
+.postBottom_texts_ect span:last-child {
+  font-size: 10px;
+  color: darkgray;
+}
+
+.homeBox_two {
+  position: absolute;
+  max-width: 400px;
+  width: 100%;
+  height: 500px;
+  padding: 30px;
+  box-sizing: border-box;
+  right: 0;
+}
+
+.homeBox_two_porfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  left: 0;
+}
+.homeBox_two_porfile i {
+  font-size: 70px;
+  color: darkgray;
+}
+.homeBox_two_porfile a {
+  padding-left: 80px;
+  color: cornflowerblue;
+}
+
+.homeBox_two_name {
+  display: flex;
+  flex-direction: column;
+}
+.homeBox_two_name span {
+  margin: 5px 0;
+}
+.homeBox_two_name span:first-child {
+  font-size: 20px;
+  font-weight: 800;
+}
+.homeBox_two_name span:nth-child(2) {
+  color: darkgray;
 }
 /*!***********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/profile.scss ***!
@@ -217,7 +367,8 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+  padding-top: 70px;
 }
 
 .topProfile_pic {
@@ -276,7 +427,7 @@ html {
 
 .botProfile {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -288,13 +439,38 @@ html {
   display: flex;
   width: 40%;
   justify-content: space-between;
-  margin-top: 30px;
 }
 .botProfile_tags div {
+  padding-top: 30px;
+  color: darkgray;
   margin-right: 13px;
+  cursor: pointer;
 }
 .botProfile_tags div i {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.botProfile_tags_one {
+  border-top: 1px solid black;
+}
+.botProfile_tags_one i {
+  color: black;
+}
+.botProfile_tags_one span {
+  color: black;
+}
+
+.profile_post {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.uploadedBox {
+  width: 100%;
+}
+.uploadedBox img {
+  width: 100%;
 }
 /*!**********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/partials/login.scss (1) ***!
@@ -490,6 +666,7 @@ html {
   \***********************************************************************************************************************************/
 header {
   position: fixed;
+  z-index: 1;
   top: 0;
   display: flex;
   justify-content: center;
@@ -504,7 +681,7 @@ header {
 .headerBox {
   padding: 0 10px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -579,7 +756,8 @@ label {
 }
 
 .formBox {
-  margin-top: 30px;
+  margin: 30px 0;
+  margin-bottom: 60px;
   width: 90%;
   max-width: 700px;
   height: 650px;

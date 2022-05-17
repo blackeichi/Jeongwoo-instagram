@@ -37,5 +37,5 @@ globalRouter
   .all(protectorMiddleware)
   .get(getUpload)
   .post(imgUpload.single("file"), postUpload);
-globalRouter.route("/:id").all(protectorMiddleware).get(profile);
+globalRouter.route("/profile/:id").all(protectorMiddleware).get(profile);
 export default globalRouter;

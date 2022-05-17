@@ -4,7 +4,21 @@ include mixins/post
 block content
     include partials/header
     div.homeBox
-        div.postBox
-            each post in uploads
-                +post(post)
-        div
+        div.homeBox_one
+            div.friendBox
+            div.postBox
+                each post in uploads
+                    +post(post)
+        div.homeBox_two
+            div.homeBox_two_porfile
+                if loggedInUser.avartarUrl
+                    img(src="/"+loggedInUser.avartarUrl)
+                else
+                    i.fa.fa-user-circle-o
+                div.homeBox_two_name
+                    span=loggedInUser.id
+                    span=loggedInUser.name
+                a(href="/logout")
+                    span Log out
+            div.homeBox_two_recommend
+                span 회원님을 위한 추천

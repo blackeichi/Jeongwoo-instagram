@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+  padding-top: 70px;
 }
 .topProfile_pic {
   padding: 40px 80px 60px 80px;
@@ -57,7 +58,7 @@
 }
 .botProfile {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -68,11 +69,33 @@
   display: flex;
   width: 40%;
   justify-content: space-between;
-  margin-top: 30px;
   div {
+    padding-top: 30px;
+    color: darkgray;
     margin-right: 13px;
+    cursor: pointer;
     i {
-      margin-right: 5px;
+      margin-right: 10px;
     }
+  }
+}
+.botProfile_tags_one {
+  border-top: 1px solid black;
+  i {
+    color: black;
+  }
+  span {
+    color: black;
+  }
+}
+.profile_post {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+.uploadedBox {
+  width: 100%;
+  img {
+    width: 100%;
   }
 }

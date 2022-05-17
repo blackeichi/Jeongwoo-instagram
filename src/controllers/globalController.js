@@ -86,10 +86,11 @@ export const postUpload = async (req, res) => {
 export const profile = async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);
+  if (!user) {
+    return res.status(400).render("404", { errorMessage: "User not found." });
+  }
   const uploads = await Upload.find({ owner: user._id });
-  const count = uploads.length;
-  console.log(req.session.user);
-  return res.render("profile", { uploads, count, id });
+  return res.render("profile", { uploads, count: uploads.length, id });
 };
 export const getEditP = async (req, res) => {
   return res.send("hi");

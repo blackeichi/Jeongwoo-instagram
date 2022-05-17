@@ -1,11 +1,149 @@
 .homeBox {
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
   display: flex;
+  padding-top: 100px;
+  position: relative;
+}
+.homeBox_one {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.friendBox {
+  width: 100%;
+  height: 150px;
+  margin: 20px 0;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .postBox {
-  width: 50%;
+  width: 100%;
+}
+.postBox_each {
+  margin-bottom: 30px;
+}
+.postHeader {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+  img {
+    width: 20px;
+  }
+  .fa.fa-user-circle-o {
+    font-size: 40px;
+    color: darkgray;
+  }
+  .fa.fa-bars {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+.postHeader_profile {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  span {
+    padding: 10px;
+  }
 }
 .postImg {
   width: 100%;
+}
+.postBottom {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  box-sizing: border-box;
+}
+.postBottom_icons {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 25px;
+  justify-content: space-between;
+  padding: 20px 15px;
+  display: flex;
+}
+.postBottom_icons_one {
+  i {
+    margin-right: 15px;
+  }
+}
+.postBottom_texts_like {
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  span {
+    margin-right: 5px;
+  }
+}
+.postBottom_texts_text {
+  span:first-child {
+    font-weight: 800;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  padding: 20px 15px;
+  padding-bottom: 5px;
+  span {
+    margin-right: 5px;
+  }
+}
+.postBottom_texts_ect {
+  padding: 0 15px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  span:nth-child(2) {
+    margin: 14px 0;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+  }
+  span:last-child {
+    font-size: 10px;
+    color: darkgray;
+  }
+}
+.homeBox_two {
+  position: absolute;
+  max-width: 400px;
+  width: 100%;
+  height: 500px;
+  padding: 30px;
+  box-sizing: border-box;
+  right: 0;
+}
+.homeBox_two_porfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  left: 0;
+  i {
+    font-size: 70px;
+    color: darkgray;
+  }
+  a {
+    padding-left: 80px;
+    color: cornflowerblue;
+  }
+}
+.homeBox_two_name {
+  display: flex;
+  flex-direction: column;
+  span {
+    margin: 5px 0;
+  }
+  span:first-child {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  span:nth-child(2) {
+    color: darkgray;
+  }
 }

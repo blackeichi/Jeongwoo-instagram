@@ -8,11 +8,13 @@ searchCancle.style.display = "none";
 
 const path = window.location.pathname;
 
+console.log(path.slice(0, 8));
+
 if (path === "/home") {
   home.style.color = "black";
 } else if (path === "/upload") {
   upload.style.color = "black";
-} else if (path === "/profile") {
+} else if (path.slice(0, 8) === "/profile") {
   profile.style.color = "black";
 }
 

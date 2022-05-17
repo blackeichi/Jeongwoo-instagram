@@ -1,4 +1,5 @@
 extends base
+include mixins/uploaded
 
 block content
     include partials/header
@@ -25,13 +26,15 @@ block content
             span.topProfile_3=loggedInUser.name
     div.botProfile
         div.botProfile_tags
-            div
+            div.botProfile_tags_one
                 i.fa.fa-th
                 span 게시물
-            div
+            div.botProfile_tags_two
                 i.fa.fa-star
-                span 태그함
-            div 
-                i.fa.fa-heart
-                span 태그된 게시물
-        div
+                span 저장됨
+            div.botProfile_tags_three
+                i.fa.fa-bookmark-o
+                span 태그됨
+        div.profile_post
+            each uploaded in uploads
+                +uploaded(uploaded)

@@ -1,12 +1,32 @@
 mixin post(post)
     div.postBox_each
         div.postHeader
-            div
+            div.postHeader_profile
                 if post.owner.avartarUrl
                     img(src=post.owner.avartarUrl)
                 else
                     i.fa.fa-user-circle-o
-                span=post.owner.name
+                span=post.owner.id
             div 
                 i.fa.fa-bars
         img.postImg(src=post.fileUrl)
+        div.postBottom
+            div.postBottom_icons
+                div.postBottom_icons_one
+                    i.fa.fa-heart-o
+                    i.fa.fa-comment-o
+                    i.fa.fa-paper-plane-o
+                i.fa.fa-bookmark-o
+            div.postBottom_texts
+                div.postBottom_texts_like
+                    span 좋아요
+                    span(style="font-weight:800")=post.like
+                    span 개
+                div.postBottom_texts_text
+                    span=post.owner.id
+                    span=post.text
+                div.postBottom_texts_ect
+                    span=post.hashtags
+                    span 모두 보기
+                    span=post.createdAt
+            div.postBottom_comments
