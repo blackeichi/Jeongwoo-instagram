@@ -7,6 +7,7 @@ module.exports = {
     join: "./src/client/js/join.js",
     header: "./src/client/js/header.js",
     upload: "./src/client/js/upload.js",
+    avatar: "./src/client/js/avatar.js",
   },
   mode: "development",
   watch: true,

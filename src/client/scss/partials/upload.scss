@@ -5,13 +5,12 @@ label {
   color: rgba(0, 0, 0, 0.8);
 }
 .formBox {
-  margin: 30px 0;
-  margin-bottom: 60px;
+  margin: 150px 0;
   width: 90%;
   max-width: 700px;
-  height: 650px;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -19,7 +18,19 @@ label {
   align-items: center;
   img {
     height: 250px;
+    width: 250px;
     display: none;
+  }
+  #avatarImg {
+    display: block;
+    border-radius: 50%;
+  }
+  #previewAvatar {
+    border-radius: 50%;
+  }
+  .fa.fa-user-circle-o {
+    font-size: 250px;
+    color: darkgray;
   }
 }
 .uploadForm {

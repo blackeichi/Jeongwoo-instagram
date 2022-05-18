@@ -13,6 +13,7 @@ const readImg = (input) => {
     reader.readAsDataURL(input.files[0]);
   }
 };
+
 inputImage.addEventListener("change", (e) => {
   readImg(e.target);
 });

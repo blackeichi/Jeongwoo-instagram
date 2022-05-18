@@ -13,6 +13,7 @@ import {
   profile,
 } from "../controllers/globalController";
 import {
+  avatarUpload,
   imgUpload,
   protectorMiddleware,
   publicOnlyMiddleware,
@@ -41,7 +42,7 @@ globalRouter
   .route("/edit")
   .all(protectorMiddleware)
   .get(getEditP)
-  .post(postEditP);
+  .post(avatarUpload.single("file"), postEditP);
 globalRouter.route("/profile/:id").all(protectorMiddleware).get(profile);
 
 export default globalRouter;

@@ -2,13 +2,27 @@ extends base
 
 block content
     include partials/header
-    div
-        form(method="POST")
-            label(for="avatarImage")
+    div.formBox
+        if errorMessage
+            span=errorMessage
+        if loggedInUser.avartarUrl
+            img(src="/"+loggedInUser.avartarUrl)#avatarImg
+        else
+            div#avatarIcon
+                i.fa.fa-user-circle-o
+        img(src="")#previewAvatar
+        form.uploadForm(method="POST" enctype="multipart/form-data") 
+            label.fileInput#avatarInput(for="inputAvatar")
                 div
                     i.class.fa.fa-arrow-circle-o-up
-            input(type="file" id="avatarImage")
-            input(type="text")
-            input(type="text")
-            input(type="password")
-            button 제출
+            input(type="file" name="file" id="inputAvatar" style="display:none" accept="image/*")
+            label 이름
+            input.txtInput(type="text" name="name" placeholder="성명" value=loggedInUser.name)
+            label 사용자 이름
+            input.hashInput(type="text" name="username" placeholder="전화번호, 사용자 이름 또는 이메일" value=loggedInUser.id)
+            label 현재 비밀번호
+            input.hashInput(type="password" name="password" placeholder="현재 비밀번호" minLenth="6")
+            label 새 비밀번호
+            input.hashInput(type="password" name="password2" placeholder="새 비밀번호")
+            button.uploadBtn 제출
+    script(src="/static/js/avatar.js")

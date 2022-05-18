@@ -328,6 +328,11 @@ html {
   box-sizing: border-box;
   right: 0;
 }
+.homeBox_two img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
 
 .homeBox_two_porfile {
   display: flex;
@@ -376,6 +381,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.topProfile_pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 .topProfile_pic i {
   font-size: 150px;
@@ -756,13 +766,12 @@ label {
 }
 
 .formBox {
-  margin: 30px 0;
-  margin-bottom: 60px;
+  margin: 150px 0;
   width: 90%;
   max-width: 700px;
-  height: 650px;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -771,7 +780,19 @@ label {
 }
 .formBox img {
   height: 250px;
+  width: 250px;
   display: none;
+}
+.formBox #avatarImg {
+  display: block;
+  border-radius: 50%;
+}
+.formBox #previewAvatar {
+  border-radius: 50%;
+}
+.formBox .fa.fa-user-circle-o {
+  font-size: 250px;
+  color: darkgray;
 }
 
 .uploadForm {

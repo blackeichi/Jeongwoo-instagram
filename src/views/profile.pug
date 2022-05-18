@@ -5,7 +5,10 @@ block content
     include partials/header
     div.topProfile
         div.topProfile_pic
-            i.fa.fa-user-circle-o
+            if loggedInUser.avartarUrl
+                img(src="/"+loggedInUser.avartarUrl)
+            else 
+                i.fa.fa-user-circle-o
         div.topProfile_ect
             div.topProfile_1
                 h1=loggedInUser.id

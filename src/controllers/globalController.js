@@ -1,6 +1,6 @@
 import User from "../Model/User";
 import bcrypt from "bcrypt";
-import Upload from "../Model/Upload";
+import Upload, { formatHashtags } from "../Model/Upload";
 
 export const handleLogin = (req, res) => {
   return res.render("login");
@@ -73,14 +73,16 @@ export const getUpload = (req, res) => {
 };
 export const postUpload = async (req, res) => {
   const { text, hashtags } = req.body;
+  console.log(hashtags);
   const file = req.file;
   const { _id } = req.session.user;
-  await Upload.create({
+  const uploaded = await Upload.create({
     fileUrl: file ? file.path : fileUrl,
     text,
-    hashtags,
+    hashtags: formatHashtags,
     owner: _id,
   });
+  console.log(uploaded);
   return res.redirect("/home");
 };
 export const profile = async (req, res) => {
@@ -93,8 +95,47 @@ export const profile = async (req, res) => {
   return res.render("profile", { uploads, count: uploads.length, id });
 };
 export const getEditP = async (req, res) => {
+  console.log(req.session.user);
   return res.render("edit");
 };
-export const postEditP = (req, res) => {
-  return null;
+export const postEditP = async (req, res) => {
+  const { name, username, password, password2 } = req.body;
+  const file = req.file;
+  const user = req.session.user;
+  const before = await User.findById(user._id);
+  const ok = await bcrypt.compare(password, before.password);
+
+  if (password && password2) {
+    if (password2.length < 6) {
+      return res.status(400).render("edit", {
+        errorMessage: "새 비밀번호는 최소 6자 이상이어야 합니다.",
+      });
+    } else if (!ok) {
+      return res
+        .status(400)
+        .render("edit", { errorMessage: "현재 비밀번호가 다릅니다." });
+    } else {
+      await User.findByIdAndUpdate(user._id, {
+        avartarUrl: file ? file.path : user.avartarUrl,
+        name,
+        id: username,
+      });
+      before.password = password2;
+      await before.save();
+      return res.redirect("/logout");
+    }
+  } else {
+    await User.findByIdAndUpdate(user._id, {
+      avartarUrl: file ? file.path : user.avartarUrl,
+      name,
+      id: username,
+    });
+    req.session.user = {
+      ...req.session.user,
+      avartarUrl: file ? file.path : user.avartarUrl,
+      name,
+      id: username,
+    };
+    return res.redirect("/edit");
+  }
 };
