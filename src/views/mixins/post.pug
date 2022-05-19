@@ -10,17 +10,21 @@ mixin post(post)
             div 
                 i.fa.fa-bars
         img.postImg(src=post.fileUrl)
-        div.postBottom
+        div.postBottom#postBottom
             div.postBottom_icons
                 div.postBottom_icons_one
-                    i.fa.fa-heart-o
-                    i.fa.fa-comment-o
+                    span.like
+                        i.fa.fa-heart-o(data-id=post._id)
+                    span.comment
+                        i.fa.fa-comment-o
+                    
                     i.fa.fa-paper-plane-o
-                i.fa.fa-bookmark-o
+                span.follow
+                    i.fa.fa-bookmark-o
             div.postBottom_texts
                 div.postBottom_texts_like
                     span 좋아요
-                    span(style="font-weight:800")=post.like
+                    span#likeNumber(data-num=post.uploadLike.length)(style="font-weight:800")=post.uploadLike.length
                     span 개
                 div.postBottom_texts_text
                     span=post.owner.id

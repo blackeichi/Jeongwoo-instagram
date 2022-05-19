@@ -6,3 +6,4 @@ import "../scss/partials/login.scss";
 import "../scss/partials/join.scss";
 import "../scss/partials/header.scss";
 import "../scss/partials/upload.scss";
+import regeneratorRuntime from "regenerator-runtime";

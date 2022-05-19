@@ -3,8 +3,7 @@ extends base
 block content
     include partials/header
     div.formBox
-        if errorMessage
-            span=errorMessage
+        
         if loggedInUser.avartarUrl
             img(src="/"+loggedInUser.avartarUrl)#avatarImg
         else
@@ -20,9 +19,12 @@ block content
             input.txtInput(type="text" name="name" placeholder="성명" value=loggedInUser.name)
             label 사용자 이름
             input.hashInput(type="text" name="username" placeholder="전화번호, 사용자 이름 또는 이메일" value=loggedInUser.id)
+            
             label 현재 비밀번호
             input.hashInput(type="password" name="password" placeholder="현재 비밀번호" minLenth="6")
             label 새 비밀번호
             input.hashInput(type="password" name="password2" placeholder="새 비밀번호")
+            if errorMessage
+                span(style="color:red; margin-top : 10px")=errorMessage
             button.uploadBtn 제출
     script(src="/static/js/avatar.js")

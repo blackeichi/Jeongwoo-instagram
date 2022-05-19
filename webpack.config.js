@@ -8,6 +8,7 @@ module.exports = {
     header: "./src/client/js/header.js",
     upload: "./src/client/js/upload.js",
     avatar: "./src/client/js/avatar.js",
+    like: "./src/client/js/like.js",
   },
   mode: "development",
   watch: true,

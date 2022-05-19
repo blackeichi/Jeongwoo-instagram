@@ -1,6 +1,8 @@
 import User from "../Model/User";
 import bcrypt from "bcrypt";
 import Upload, { formatHashtags } from "../Model/Upload";
+import { async } from "regenerator-runtime";
+import Like from "../Model/Like";
 
 export const handleLogin = (req, res) => {
   return res.render("login");
@@ -62,6 +64,7 @@ export const getHome = async (req, res) => {
   const uploads = await Upload.find({})
     .sort({ createdAt: "desc" })
     .populate("owner");
+
   return res.render("home", { uploads });
 };
 export const logOut = (req, res) => {
@@ -73,16 +76,14 @@ export const getUpload = (req, res) => {
 };
 export const postUpload = async (req, res) => {
   const { text, hashtags } = req.body;
-  console.log(hashtags);
   const file = req.file;
   const { _id } = req.session.user;
   const uploaded = await Upload.create({
     fileUrl: file ? file.path : fileUrl,
     text,
-    hashtags: formatHashtags,
+    hashtags,
     owner: _id,
   });
-  console.log(uploaded);
   return res.redirect("/home");
 };
 export const profile = async (req, res) => {
@@ -95,15 +96,16 @@ export const profile = async (req, res) => {
   return res.render("profile", { uploads, count: uploads.length, id });
 };
 export const getEditP = async (req, res) => {
-  console.log(req.session.user);
   return res.render("edit");
 };
 export const postEditP = async (req, res) => {
   const { name, username, password, password2 } = req.body;
   const file = req.file;
   const user = req.session.user;
+  console.log(user);
   const before = await User.findById(user._id);
   const ok = await bcrypt.compare(password, before.password);
+  const exist = await User.findOne({ id: username });
 
   if (password && password2) {
     if (password2.length < 6) {
@@ -125,6 +127,13 @@ export const postEditP = async (req, res) => {
       return res.redirect("/logout");
     }
   } else {
+    if (user.id !== username) {
+      if (exist) {
+        return res.status(400).render("edit", {
+          errorMessage: "이미 존재하는 '사용자 이름' 입니다.",
+        });
+      }
+    }
     await User.findByIdAndUpdate(user._id, {
       avartarUrl: file ? file.path : user.avartarUrl,
       name,
