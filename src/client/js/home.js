@@ -1,22 +1,23 @@
-const deleteNo = document.getElementById("deleteNo");
-const trashIcon = document.getElementById("trashIcon");
-const deleteText = document.getElementById("deleteText");
-const deleteYes = document.getElementById("deleteYes");
+const deleteNo = document.querySelectorAll(".deleteNo");
+const trashIcon = document.querySelectorAll(".fa.fa-trash");
+const deleteYes = document.querySelectorAll(".deleteYes");
+const deleteText = document.querySelectorAll(".deleteText");
+
 let setOpen = false;
 
-const clikedNo = () => {
+console.log(window.screenY);
+
+const wheelChange = (event) => {
+  setOpen = false;
   deleteText.style.display = "none";
+};
+
+const clikedNo = (event) => {
+  const div = event.target.parentElement;
+  div.style.display = "none";
   setOpen = false;
 };
-const clikedTrash = () => {
-  setOpen = !setOpen;
-  console.log(setOpen);
-  if (setOpen) {
-    deleteText.style.display = "block";
-  } else {
-    deleteText.style.display = "none";
-  }
-};
+
 const clickedYes = async (event) => {
   const postId = event.target.dataset.id;
   const { status } = await fetch(`/api/${postId}/delete`, {
@@ -27,7 +28,19 @@ const clickedYes = async (event) => {
   });
   console.log(status);
 };
+const clikedTrash = (event) => {
+  setOpen = !setOpen;
+  const div = event.target.parentElement;
+  const box = div.children[1];
+  if (setOpen) {
+    box.style.display = "block";
+  } else {
+    box.style.display = "none";
+  }
+};
 
-deleteNo.addEventListener("click", clikedNo);
-trashIcon.addEventListener("click", clikedTrash);
-deleteYes.addEventListener("click", clickedYes);
+for (i = 0; i < trashIcon.length; i++) {
+  trashIcon[i].addEventListener("click", clikedTrash);
+  deleteNo[i].addEventListener("click", clikedNo);
+  deleteYes[i].addEventListener("click", clickedYes);
+}

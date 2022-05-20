@@ -22,15 +22,15 @@ mixin post(post)
                     span.comment
                         i.fa.fa-comment-o
                     if String(post.owner._id) === String(loggedInUser._id)
-                        i.fa.fa-trash#trashIcon
-                    div.deleteText#deleteText
-                        p 정말 삭제하시겠습니까?
-                        p(style="cursor:pointer")#deleteYes(data-id=post._id) 예
-                        p(style="cursor:pointer")#deleteNo 아니오 
+                        div
+                            i.fa.fa-trash#trashIcon
+                            div.deleteText#deleteText
+                                p 정말 삭제하시겠습니까?
+                                p(style="cursor:pointer").deleteYes(data-id=post._id) 예
+                                p(style="cursor:pointer").deleteNo 아니오 
                 span.follow
                     i.fa.fa-bookmark-o
             div.postBottom_texts
-
                 div.postBottom_texts_text
                     span=post.owner.id
                     span=post.text
@@ -38,5 +38,7 @@ mixin post(post)
                     span=post.hashtags
                     span 모두 보기
                     span=post.createdAt
-            div.postBottom_comments
+            form(method="POST").postBottom_comments
+                input(type="text")
+                button 제출
     

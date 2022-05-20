@@ -285,6 +285,9 @@ i:hover {
   color: black;
 }
 
+.postBottom_icons_one {
+  display: flex;
+}
 .postBottom_icons_one i {
   margin-right: 15px;
 }
@@ -387,6 +390,37 @@ i:hover {
 }
 .homeBox_two_name span:nth-child(2) {
   color: darkgray;
+}
+
+.postBottom_comments {
+  width: 100%;
+  display: none;
+  position: relative;
+}
+.postBottom_comments input {
+  height: 80px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-right: 150px;
+  box-sizing: border-box;
+}
+.postBottom_comments input:focus {
+  outline: none;
+}
+.postBottom_comments button {
+  width: 140px;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.postBottom_comments button:hover {
+  background-color: dimgray;
+  color: white;
 }
 /*!***********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/profile.scss ***!
