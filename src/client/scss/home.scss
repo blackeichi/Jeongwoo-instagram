@@ -67,15 +67,37 @@
   justify-content: space-between;
   padding: 20px 15px;
   display: flex;
+  position: relative;
+  i {
+    cursor: pointer;
+  }
 }
+i:hover {
+  color: black;
+}
+
 .postBottom_icons_one {
   i {
     margin-right: 15px;
   }
+  .deleteText {
+    font-size: 15px;
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    left: 150px;
+    display: none;
+    p {
+      margin: 7px 0;
+    }
+  }
 }
 .postBottom_texts_like {
+  position: absolute;
+  font-size: 15px;
+  left: 0;
   width: 100%;
-  padding: 0 15px;
+  padding: 15px 15px;
   display: flex;
   span {
     margin-right: 5px;
@@ -115,10 +137,12 @@
   height: 500px;
   box-sizing: border-box;
   right: 0;
+  padding: 30px;
   img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    margin-right: 20px;
   }
 }
 .homeBox_two_porfile {

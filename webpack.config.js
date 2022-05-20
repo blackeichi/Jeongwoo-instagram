@@ -9,6 +9,7 @@ module.exports = {
     upload: "./src/client/js/upload.js",
     avatar: "./src/client/js/avatar.js",
     like: "./src/client/js/like.js",
+    home: "./src/client/js/home.js",
   },
   mode: "development",
   watch: true,

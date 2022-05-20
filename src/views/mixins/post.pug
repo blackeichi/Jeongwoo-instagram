@@ -13,19 +13,24 @@ mixin post(post)
         div.postBottom#postBottom
             div.postBottom_icons
                 div.postBottom_icons_one
-                    span.like
-                        i.fa.fa-heart-o(data-id=post._id)
+                    span
+                        i.fa.fa-heart-o(data-id=post._id, data-num=post.uploadLike.length)
+                        div.postBottom_texts_like
+                            p.likeP 좋아요
+                            p.likeP#likeNumber(style="font-weight:800")=post.uploadLike.length
+                            p.likeP 개
                     span.comment
                         i.fa.fa-comment-o
-                    
-                    i.fa.fa-paper-plane-o
+                    if String(post.owner._id) === String(loggedInUser._id)
+                        i.fa.fa-trash#trashIcon
+                    div.deleteText#deleteText
+                        p 정말 삭제하시겠습니까?
+                        p(style="cursor:pointer")#deleteYes(data-id=post._id) 예
+                        p(style="cursor:pointer")#deleteNo 아니오 
                 span.follow
                     i.fa.fa-bookmark-o
             div.postBottom_texts
-                div.postBottom_texts_like
-                    span 좋아요
-                    span#likeNumber(data-num=post.uploadLike.length)(style="font-weight:800")=post.uploadLike.length
-                    span 개
+
                 div.postBottom_texts_text
                     span=post.owner.id
                     span=post.text
@@ -34,3 +39,4 @@ mixin post(post)
                     span 모두 보기
                     span=post.createdAt
             div.postBottom_comments
+    

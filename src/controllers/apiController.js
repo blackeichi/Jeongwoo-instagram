@@ -11,9 +11,9 @@ export const like = async (req, res) => {
   const userExitst = await Like.exists({
     $and: [{ owner: user._id }, { upload: id }],
   });
-  if (userExitst) {
+  /* if (userExitst) {
     return res.sendStatus(404);
-  }
+  } */
   if (user._id === String(post.owner)) {
     return res.sendStatus(403);
   }
@@ -25,4 +25,8 @@ export const like = async (req, res) => {
   post.save();
 
   return res.sendStatus(200);
+};
+export const deletePost = async (req, res) => {
+  console.log("delete");
+  return res.sendStatus(201);
 };
