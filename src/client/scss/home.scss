@@ -33,7 +33,9 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   align-items: center;
   img {
-    width: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }
   .fa.fa-user-circle-o {
     font-size: 40px;
@@ -57,6 +59,7 @@
 }
 .postBottom {
   width: 100%;
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   box-sizing: border-box;
@@ -67,7 +70,6 @@
   justify-content: space-between;
   padding: 20px 15px;
   display: flex;
-  position: relative;
   i {
     cursor: pointer;
   }
@@ -105,10 +107,10 @@ i:hover {
   }
 }
 .postBottom_texts_text {
+  font-size: 20px;
   span:first-child {
     font-weight: 800;
     margin-right: 10px;
-    font-size: 18px;
   }
   padding: 20px 15px;
   padding-bottom: 5px;
@@ -117,10 +119,11 @@ i:hover {
   }
 }
 .postBottom_texts_ect {
-  padding: 0 15px;
+  padding: 10px 15px;
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
+  font-size: 15px;
   span:nth-child(2) {
     margin: 14px 0;
     font-size: 17px;
@@ -179,11 +182,13 @@ i:hover {
 .postBottom_comments {
   width: 100%;
   display: none;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   input {
     height: 80px;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     padding: 20px;
     padding-right: 150px;
     box-sizing: border-box;
@@ -194,13 +199,14 @@ i:hover {
   button {
     width: 140px;
     height: 80px;
+    font-size: 20px;
     position: absolute;
     right: 0;
     cursor: pointer;
     background-color: #fafafa;
     color: rgba(0, 0, 0, 0.7);
 
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
   }
   button:hover {
     background-color: dimgray;

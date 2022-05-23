@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   id: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 6 },
   name: { type: String, required: true },
+  commentUser: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  tagedUpload: [{ type: mongoose.Schema.Types.ObjectId, ref: "Upload" }],
 });
 
 userSchema.pre("save", async function () {

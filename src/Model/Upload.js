@@ -10,6 +10,7 @@ const uploadShema = new mongoose.Schema({
   uploadLike: [
     { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Like" },
   ],
+  uploadComment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 uploadShema.pre("save", async function () {
   this.hashtags = this.hashtags[0]
