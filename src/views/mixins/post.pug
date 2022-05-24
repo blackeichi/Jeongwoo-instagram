@@ -19,12 +19,11 @@ mixin post(post)
                             p.likeP 좋아요
                             p.likeP#likeNumber(style="font-weight:800")=post.uploadLike.length
                             p.likeP 개
-                    span.comment
+                    a(href=`/comments/${post._id}`)
+                        span.comment
                         div
                             i.fa.fa-comment-o
-                            form.postBottom_comments(data-id=post._id)
-                                input(type="text" name="comment" placeholder="댓글...")
-                                button 확인
+
                     if String(post.owner._id) === String(loggedInUser._id)
                         div
                             i.fa.fa-trash#trashIcon
@@ -32,15 +31,23 @@ mixin post(post)
                                 p 정말 삭제하시겠습니까?
                                 p(style="cursor:pointer").deleteYes(data-id=post._id) 예
                                 p(style="cursor:pointer").deleteNo 아니오 
-                span.follow
-                    i.fa.fa-bookmark-o(data-id=post._id)
+                span.follow(data-id=post._id)
+                    if Istag === null 
+                        i.fa.fa-bookmark-o
+                    else 
+                        i.fa.fa-times
             div.postBottom_texts
                 div.postBottom_texts_text
                     span=post.owner.id
                     span=post.text
                 div.postBottom_texts_ect
                     span=post.hashtags
-                    span 모두 보기
+                    a(href=`/comments/${post._id}`).postBottom_texts_ect_link
+                        p 댓글
+                        p=post.uploadComment.length
+                        p 개 모두 보기
                     span=post.createdAt
-
+            form.postBottom_comments(data-id=post._id)
+                input(type="text" name="comment" placeholder="댓글...").postBottom_comments_input
+                button.postBottom_comments_btn 게시
     

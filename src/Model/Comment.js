@@ -12,6 +12,7 @@ const commentSchema = new mongoose.Schema({
     ref: "Upload",
   },
   text: { type: String, required: true },
+  createdAt: { type: Date, required: true, trim: true, default: Date.now },
 });
 
 const Comment = mongoose.model("Comment", commentSchema);

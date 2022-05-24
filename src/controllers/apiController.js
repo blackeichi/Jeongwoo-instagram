@@ -71,13 +71,18 @@ export const tagPost = async (req, res) => {
   const { id } = req.params;
   const { _id } = req.session.user;
   const user = await User.findById(_id);
+  const upload = await Upload.findById(id);
   const exists = await User.findOne({ tagedUpload: id });
   if (exists) {
     user.tagedUpload.pop(exists);
     user.save();
+    upload.taged.pop(_id);
+    upload.save();
     return res.sendStatus(202);
   }
   user.tagedUpload.push(id);
   user.save();
+  upload.taged.push(_id);
+  upload.save();
   return res.sendStatus(201);
 };

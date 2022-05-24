@@ -1,3 +1,12 @@
+@import "./reset.scss";
+@import "./home.scss";
+@import "./profile.scss";
+@import "./partials/login.scss";
+@import "./partials/join.scss";
+@import "./partials/header.scss";
+@import "./partials/upload.scss";
+@import "./partials/datail.scss";
+
 body {
   width: 100%;
   min-height: 100vh;

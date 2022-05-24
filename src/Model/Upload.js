@@ -11,7 +11,9 @@ const uploadShema = new mongoose.Schema({
     { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Like" },
   ],
   uploadComment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  taged: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
+
 uploadShema.pre("save", async function () {
   this.hashtags = this.hashtags[0]
     .split(",")

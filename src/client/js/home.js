@@ -5,22 +5,16 @@ const trashIcon = document.querySelectorAll(".fa.fa-trash");
 const deleteYes = document.querySelectorAll(".deleteYes");
 const deleteText = document.querySelectorAll(".deleteText");
 const commentForm = document.querySelectorAll(".postBottom_comments");
-const commentIcon = document.querySelectorAll(".fa.fa-comment-o");
-const tagIcon = document.querySelectorAll(".fa.fa-bookmark-o");
+const commentInput = document.querySelectorAll(".postBottom_comments_input");
+const tagIcon = document.querySelectorAll(".follow");
 
 let setOpen = false;
-let formOpen = false;
 let openedBox;
-let formBox;
 
 const wheelChange = (event) => {
   if (setOpen) {
     setOpen = false;
     openedBox.style.display = "none";
-  }
-  if (formOpen) {
-    formOpen = false;
-    formBox.style.display = "none";
   }
 };
 
@@ -62,6 +56,28 @@ const clikedTrash = (event) => {
   }
 };
 
+const commentCheck = (event) => {
+  const data = event.target.value;
+  const commentBtn = event.target.nextSibling;
+  if (data.length > 0) {
+    commentBtn.style.color = "black";
+    commentBtn.style.cursor = "pointer";
+  } else if (data.length === 0) {
+    commentBtn.style.color = "rgba(0,0,0,0.3)";
+    commentBtn.style.cursor = "default";
+  }
+};
+const commentFocus = (event) => {
+  const commentBtn = event.target.nextSibling;
+  event.target.style.height = "60px";
+  commentBtn.style.height = "60px";
+};
+const commentFocusout = (event) => {
+  const commentBtn = event.target.nextSibling;
+  event.target.style.height = "40px";
+  commentBtn.style.height = "40px";
+};
+
 const submitComment = async (event) => {
   event.preventDefault();
   const postId = event.target.dataset.id;
@@ -78,8 +94,6 @@ const submitComment = async (event) => {
   if (status === 201) {
     event.target[0].value = "";
     alert("댓글이 등록되었습니다.");
-    form.style.display = "none";
-    formOpen = false;
   } else if (status === 400) {
     alert("댓글의 내용을 입력하여 주세요.");
   } else {
@@ -87,21 +101,9 @@ const submitComment = async (event) => {
   }
 };
 
-const clickComment = (event) => {
-  const div = event.target.parentElement;
-  const form = div.children[1];
-  formBox = form;
-  if (formOpen === false) {
-    form.style.display = "block";
-  } else {
-    form.style.display = "none";
-  }
-  formOpen = !formOpen;
-};
-
 const clickTag = async (event) => {
   const icon = event.target;
-  const postId = event.target.dataset.id;
+  const postId = event.target.parentElement.dataset.id;
   const { status } = await fetch(`/api/${postId}/tag`, {
     method: "POST",
     headers: {
@@ -113,7 +115,7 @@ const clickTag = async (event) => {
     alert("Taged:)");
   } else if (status === 202) {
     icon.className = "fa fa-bookmark-o";
-    alert("Untagedㅜ");
+    alert("Untaged!");
   }
 };
 
@@ -122,7 +124,9 @@ for (let i = 0; i < trashIcon.length; i++) {
   deleteNo[i].addEventListener("click", clikedNo);
   deleteYes[i].addEventListener("click", clickedYes);
   commentForm[i].addEventListener("submit", submitComment);
-  commentIcon[i].addEventListener("click", clickComment);
+  commentInput[i].addEventListener("input", commentCheck);
+  commentInput[i].addEventListener("focus", commentFocus);
+  commentInput[i].addEventListener("focusout", commentFocusout);
   tagIcon[i].addEventListener("click", clickTag);
 }
 document.addEventListener("wheel", wheelChange);

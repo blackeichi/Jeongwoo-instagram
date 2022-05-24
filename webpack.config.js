@@ -10,6 +10,7 @@ module.exports = {
     avatar: "./src/client/js/avatar.js",
     like: "./src/client/js/like.js",
     home: "./src/client/js/home.js",
+    detail: "./src/client/js/detail.js",
   },
   mode: "development",
   watch: true,

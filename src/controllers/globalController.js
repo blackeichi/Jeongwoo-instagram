@@ -1,6 +1,7 @@
 import User from "../Model/User";
 import bcrypt from "bcrypt";
 import Upload, { formatHashtags } from "../Model/Upload";
+import Comment from "../Model/Comment";
 import { async } from "regenerator-runtime";
 import Like from "../Model/Like";
 
@@ -64,8 +65,9 @@ export const getHome = async (req, res) => {
   const uploads = await Upload.find({})
     .sort({ createdAt: "desc" })
     .populate("owner");
-
-  return res.render("home", { uploads });
+  const { _id } = req.session.user;
+  const Istag = await Upload.findOne({ taged: _id });
+  return res.render("home", { uploads, Istag });
 };
 export const logOut = (req, res) => {
   req.session.destroy();
@@ -147,4 +149,16 @@ export const postEditP = async (req, res) => {
     };
     return res.redirect("/edit");
   }
+};
+
+export const getDetail = async (req, res) => {
+  const { id } = req.params;
+  const comments = await Comment.find({ upload: id })
+    .sort({ createdAt: "desc" })
+    .populate("owner");
+  if (!comments) {
+    alert("Sorry, nothing found");
+    return res.render("home");
+  }
+  return res.render("detail", { comments });
 };

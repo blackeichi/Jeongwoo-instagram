@@ -135,6 +135,16 @@ i:hover {
     color: darkgray;
   }
 }
+.postBottom_texts_ect_link {
+  margin: 15px 0;
+  display: flex;
+  width: fit-content;
+  p {
+    margin-right: 5px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
 .homeBox_two {
   position: fixed;
   width: 40%;
@@ -181,14 +191,14 @@ i:hover {
 }
 .postBottom_comments {
   width: 100%;
-  display: none;
-  position: absolute;
   bottom: 0;
   left: 0;
+  display: flex;
   input {
-    height: 80px;
+    height: 40px;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 20px;
     padding-right: 150px;
     box-sizing: border-box;
@@ -198,18 +208,12 @@ i:hover {
   }
   button {
     width: 140px;
-    height: 80px;
+    height: 40px;
     font-size: 20px;
-    position: absolute;
     right: 0;
-    cursor: pointer;
     background-color: #fafafa;
-    color: rgba(0, 0, 0, 0.7);
-
-    border: 1px solid rgba(0, 0, 0, 0.3);
-  }
-  button:hover {
-    background-color: dimgray;
-    color: white;
+    color: rgba(0, 0, 0, 0.3);
+    box-sizing: content-box;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 }
