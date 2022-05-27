@@ -104,7 +104,6 @@ export const postEditP = async (req, res) => {
   const { name, username, password, password2 } = req.body;
   const file = req.file;
   const user = req.session.user;
-  console.log(user);
   const before = await User.findById(user._id);
   const ok = await bcrypt.compare(password, before.password);
   const exist = await User.findOne({ id: username });
@@ -147,7 +146,7 @@ export const postEditP = async (req, res) => {
       name,
       id: username,
     };
-    return res.redirect("/edit");
+    return res.redirect("/profile/" + user._id);
   }
 };
 
@@ -160,5 +159,5 @@ export const getDetail = async (req, res) => {
     alert("Sorry, nothing found");
     return res.render("home");
   }
-  return res.render("detail", { comments });
+  return res.render("detail", { comments, post: id });
 };

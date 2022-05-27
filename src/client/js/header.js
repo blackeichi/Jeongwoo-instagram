@@ -4,6 +4,7 @@ const searchCancle = document.getElementById("searchCancle");
 const home = document.querySelector("#tabbar :nth-child(1)");
 const upload = document.querySelector("#tabbar :nth-child(3)");
 const profile = document.querySelector("#tabbar :nth-child(5)");
+const headerLogo = document.getElementById("headerLogo");
 searchCancle.style.display = "none";
 
 const path = window.location.pathname;
@@ -35,6 +36,11 @@ const offFocus = () => {
   searchBar.style.paddingLeft = "40px";
 };
 
+const clickLogo = () => {
+  location.href = "/home";
+};
+
 searchCancle.addEventListener("click", handleClick);
 searchBar.addEventListener("focus", onFocus);
 searchBar.addEventListener("focusout", offFocus);
+headerLogo.addEventListener("click", clickLogo);

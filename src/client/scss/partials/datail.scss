@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 100vh;
   max-width: 1000px;
-  background-color: lightgray;
+  background-color: white;
   align-items: center;
 }
 .comment_Top {
@@ -40,16 +40,16 @@
   padding: 0 15px;
 }
 .comment_Form.avatar {
-  width: 40px;
+  width: 50px;
   box-sizing: content-box;
   img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
   i {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
 }
@@ -81,4 +81,33 @@
   padding: 0 10px;
   margin-top: 115px;
   box-sizing: border-box;
+}
+.comment_each {
+  display: flex;
+  padding: 0 20px;
+  padding-top: 30px;
+}
+.comment_eachAvartar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.comment_eachText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-right: 8px;
+  }
+  i {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+.comment_eachDate {
+  font-size: 12px;
+  color: gray;
 }

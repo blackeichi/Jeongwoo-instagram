@@ -7,6 +7,7 @@ const deleteText = document.querySelectorAll(".deleteText");
 const commentForm = document.querySelectorAll(".postBottom_comments");
 const commentInput = document.querySelectorAll(".postBottom_comments_input");
 const tagIcon = document.querySelectorAll(".follow");
+const homeBoxone = document.getElementsByClassName("homeBox_one");
 
 let setOpen = false;
 let openedBox;

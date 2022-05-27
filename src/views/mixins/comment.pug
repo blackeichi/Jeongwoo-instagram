@@ -1,2 +1,10 @@
 mixin comment(comment)
-    div
+    div.comment_each
+        img.comment_eachAvartar(src="/" + comment.owner.avartarUrl)
+        div.comment_eachContent
+            div.comment_eachText
+                h2=comment.owner.id
+                span=comment.text
+                if String(loggedInUser._id) === String(comment.owner._id)
+                    i.fa.fa-times
+            p.comment_eachDate=comment.createdAt

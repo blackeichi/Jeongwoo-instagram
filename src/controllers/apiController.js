@@ -86,3 +86,16 @@ export const tagPost = async (req, res) => {
   upload.save();
   return res.sendStatus(201);
 };
+
+export const postDetail = async (req, res) => {
+  const { text } = req.body;
+  const userId = req.session.user;
+  const postId = req.params.id;
+  const createComment = await Comment.create({
+    owner: userId,
+    upload: postId,
+    text,
+  });
+  console.log(createComment);
+  return res.sendStatus(201);
+};

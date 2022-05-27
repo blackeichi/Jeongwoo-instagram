@@ -166,6 +166,8 @@ html {
   width: 60%;
   display: flex;
   flex-direction: column;
+  max-width: 70%;
+  flex-shrink: 1;
 }
 
 .friendBox {
@@ -318,11 +320,12 @@ i:hover {
 
 .homeBox_two {
   position: fixed;
-  width: 40%;
+  width: 45%;
   height: 500px;
   box-sizing: border-box;
   right: 0;
-  padding: 30px;
+  padding-top: 30px;
+  padding-left: 50px;
 }
 .homeBox_two img {
   width: 80px;
@@ -885,7 +888,7 @@ label {
   width: 100%;
   min-height: 100vh;
   max-width: 1000px;
-  background-color: lightgray;
+  background-color: white;
   align-items: center;
 }
 
@@ -925,17 +928,17 @@ label {
 }
 
 .comment_Form.avatar {
-  width: 40px;
+  width: 50px;
   box-sizing: content-box;
 }
 .comment_Form.avatar img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 .comment_Form.avatar i {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 
@@ -968,6 +971,39 @@ label {
   padding: 0 10px;
   margin-top: 115px;
   box-sizing: border-box;
+}
+
+.comment_each {
+  display: flex;
+  padding: 0 20px;
+  padding-top: 30px;
+}
+
+.comment_eachAvartar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.comment_eachText {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.comment_eachText h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-right: 8px;
+}
+.comment_eachText i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.comment_eachDate {
+  font-size: 12px;
+  color: gray;
 }
 
 body {

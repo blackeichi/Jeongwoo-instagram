@@ -21,8 +21,8 @@ html(lang="ko")
                             img(src="/"+loggedInUser.avartarUrl)
                         else
                             i.fa.fa-user-circle-o
-                    form.comment_Form.form#comment_Form
-                        input(type="text", placeholder="댓글 달기...")#comment_Form_input
+                    form.comment_Form.form#comment_Form(data-id = post)
+                        input(type="text", placeholder="댓글 달기...", name="commentText")#comment_Form_input
                         button#comment_Form_btn 게시
             div.comment_Box
                 each comment in comments

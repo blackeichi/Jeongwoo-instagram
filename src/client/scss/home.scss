@@ -9,6 +9,8 @@
   width: 60%;
   display: flex;
   flex-direction: column;
+  max-width: 70%;
+  flex-shrink: 1;
 }
 .friendBox {
   width: 100%;
@@ -147,11 +149,12 @@ i:hover {
 }
 .homeBox_two {
   position: fixed;
-  width: 40%;
+  width: 45%;
   height: 500px;
   box-sizing: border-box;
   right: 0;
-  padding: 30px;
+  padding-top: 30px;
+  padding-left: 50px;
   img {
     width: 80px;
     height: 80px;
