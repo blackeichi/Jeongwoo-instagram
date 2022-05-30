@@ -21,8 +21,10 @@ footer {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 80%;
+  width: 100%;
   color: rgba(0, 0, 0, 0.5);
+  padding-top: 50px;
+  max-width: 1000px;
   span {
     font-size: 12px;
   }

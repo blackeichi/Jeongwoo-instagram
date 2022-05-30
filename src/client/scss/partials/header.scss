@@ -11,6 +11,7 @@ header {
   margin-bottom: 80px;
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
 }
 .headerBox {
   padding: 0 10px;
@@ -61,6 +62,7 @@ header {
 }
 .tabbar {
   padding-left: 50px;
+  padding-right: 20px;
   box-sizing: content-box;
   display: flex;
   align-items: center;

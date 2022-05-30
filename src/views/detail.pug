@@ -14,7 +14,7 @@ html(lang="ko")
                     a(href="/home") 
                         i.fa.fa-chevron-left
                     span 댓글
-                    i.fa.fa-picture-o
+                    i.fa.fa-paper-plane-o#getlink 
                 div.comment_Form
                     div.comment_Form.avatar
                         if loggedInUser.avartarUrl
@@ -24,10 +24,23 @@ html(lang="ko")
                     form.comment_Form.form#comment_Form(data-id = post)
                         input(type="text", placeholder="댓글 달기...", name="commentText")#comment_Form_input
                         button#comment_Form_btn 게시
-            div.comment_Box
-                each comment in comments
-                    +comment(comment)
+            if comments[0]
+                div.comment_Box
+                    each comment in comments
+                        +comment(comment)
+            else
+                div.nocomment
+                    i.fa.fa-commenting-o
+                    h1 등록된 댓글이 없습니다.
             div.comment_Bot
+                a(href="/home") 
+                    i.fa.fa-home
+                i.fa.fa-share
+                a(href="/upload") 
+                    i.fa.fa-plus-square-o 
+                i.fa.fa-heart
+                a(href="/profile/"+loggedInUser._id)
+                    i.fa.fa-user-circle-o
     script(src="https://kit.fontawesome.com/c9023371e9.js" crossorigin="anonymous")
     script(src="/static/js/main.js")
     script(src="/static/js/detail.js")

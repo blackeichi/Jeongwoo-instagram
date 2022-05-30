@@ -1,20 +1,21 @@
 mixin post(post)
     div.postBox_each
         div.postHeader
-            div.postHeader_profile
-                if post.owner.avartarUrl
-                    img(src=post.owner.avartarUrl)
-                else
-                    i.fa.fa-user-circle-o
-                span=post.owner.id
+            a(href="/profile/"+ post.owner._id)
+                div.postHeader_profile
+                    if post.owner.avartarUrl
+                        img(src=post.owner.avartarUrl)
+                    else
+                        i.fa.fa-user-circle-o
+                    span=post.owner.id
             div 
-                i.fa.fa-bars
+                i.fa.fa-star-o#postHeader_followbtn(data-id=post.owner._id, data-name=post.owner.id, data-myid = loggedInUser._id, data-follower = post.owner.follower)
         img.postImg(src=post.fileUrl)
         div.postBottom#postBottom
             div.postBottom_icons
                 div.postBottom_icons_one
                     span
-                        i.fa.fa-heart-o(data-id=post._id, data-num=post.uploadLike.length)
+                        i.fa.fa-heart-o(data-id=post._id, data-num=post.uploadLike.length, data-likeid=post.uploadLike, data-userid = loggedInUser._id)
                         div.postBottom_texts_like
                             p.likeP 좋아요
                             p.likeP#likeNumber(style="font-weight:800")=post.uploadLike.length
@@ -31,11 +32,8 @@ mixin post(post)
                                 p 정말 삭제하시겠습니까?
                                 p(style="cursor:pointer").deleteYes(data-id=post._id) 예
                                 p(style="cursor:pointer").deleteNo 아니오 
-                span.follow(data-id=post._id)
-                    if Istag === null 
-                        i.fa.fa-bookmark-o
-                    else 
-                        i.fa.fa-times
+                span.follow(data-id=post._id, data-tagedid=post.taged, data-userid=loggedInUser._id)
+                    i.fa.fa-bookmark-o
             div.postBottom_texts
                 div.postBottom_texts_text
                     span=post.owner.id
@@ -44,7 +42,7 @@ mixin post(post)
                     span=post.hashtags
                     a(href=`/comments/${post._id}`).postBottom_texts_ect_link
                         p 댓글
-                        p=post.uploadComment.length
+                        p#commentsCount=post.uploadComment.length
                         p 개 모두 보기
                     span=post.createdAt
             form.postBottom_comments(data-id=post._id)

@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   commentUser: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   tagedUpload: [{ type: mongoose.Schema.Types.ObjectId, ref: "Upload" }],
+  likeUser: [{ type: mongoose.Schema.Types.ObjectId, ref: "Upload" }],
+  loveMe: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  follow: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  follower: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 
 userSchema.pre("save", async function () {

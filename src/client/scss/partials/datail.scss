@@ -1,14 +1,15 @@
 .comment_base {
   display: flex;
   flex-direction: column;
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
   max-width: 1000px;
   background-color: white;
   align-items: center;
 }
 .comment_Top {
   position: fixed;
+  top: 0;
   width: 100%;
   max-width: 1000px;
 }
@@ -23,6 +24,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
   i {
     font-size: 25px;
     cursor: pointer;
@@ -33,6 +35,7 @@
   height: 65px;
   background-color: lightgray;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,8 +51,8 @@
     border-radius: 50%;
   }
   i {
-    width: 50px;
-    height: 50px;
+    color: gray;
+    font-size: 50px;
     border-radius: 50%;
   }
 }
@@ -76,16 +79,27 @@
 }
 .comment_Box {
   background-color: white;
-  height: 200px;
   width: 100%;
   padding: 0 10px;
-  margin-top: 115px;
+  margin-top: 120px;
   box-sizing: border-box;
 }
 .comment_each {
   display: flex;
   padding: 0 20px;
-  padding-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  border-top: 1px solid lightgray;
+  .fa.fa-user-circle-o {
+    font-size: 45px;
+    color: gray;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  .fa.fa-times {
+    font-size: 20px;
+    margin-left: 20px;
+  }
 }
 .comment_eachAvartar {
   width: 50px;
@@ -110,4 +124,39 @@
 .comment_eachDate {
   font-size: 12px;
   color: gray;
+}
+.nocomment {
+  margin-top: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: lightgray;
+  i {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  :hover {
+    color: lightgray;
+  }
+}
+.comment_Bot {
+  background-color: white;
+  bottom: 0;
+  position: fixed;
+  max-width: 1000px;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  i {
+    font-size: 25px;
+    color: gray;
+  }
+  :hover {
+    color: black;
+  }
 }

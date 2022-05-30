@@ -9,19 +9,12 @@ block content
             div.postBox
                 each post in uploads
                     +post(post)
-        div.homeBox_two
-            div.homeBox_two_porfile
-                if loggedInUser.avartarUrl
-                    img(src="/"+loggedInUser.avartarUrl)
-                else
-                    i.fa.fa-user-circle-o
-                div.homeBox_two_name
-                    span=loggedInUser.id
-                    span=loggedInUser.name
-                a(href="/logout")
-                    span Log out
-            div.homeBox_two_recommend
-                span 회원님을 위한 추천
+    div.overlay#overlay
+        div.overlay_box
+            span.overlay_Q#overlay_Q
+            div.overlay_A
+                button.overlay_A_yes#overlay_yes 팔로우하기
+                button.overlay_A_no#overlay_no 취소
 block script 
     script(src="/static/js/like.js") 
     script(src="/static/js/home.js")

@@ -66,8 +66,7 @@ export const getHome = async (req, res) => {
     .sort({ createdAt: "desc" })
     .populate("owner");
   const { _id } = req.session.user;
-  const Istag = await Upload.findOne({ taged: _id });
-  return res.render("home", { uploads, Istag });
+  return res.render("home", { uploads });
 };
 export const logOut = (req, res) => {
   req.session.destroy();

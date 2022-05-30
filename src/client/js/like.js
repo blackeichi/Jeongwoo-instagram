@@ -12,10 +12,12 @@ const clickLike = async (event) => {
     },
   });
   if (status === 200) {
+    const i = event.target;
     const span = event.target.parentElement;
     const div = span.children[1];
     const p = div.children[1];
     p.innerText = Number(event.target.dataset.num) + 1;
+    i.style.color = "tomato";
   } else if (status === 404) {
     alert("이미 좋아요를 누르셨습니다.");
   } else if (status === 403) {
@@ -27,4 +29,17 @@ const clickLike = async (event) => {
 
 for (let i = 0; i < like.length; i++) {
   like[i].addEventListener("click", clickLike);
+  for (
+    let j = 0;
+    j <
+    like[i].dataset.likeid.slice(1, -1).replace(/\"/gi, "").split(",").length;
+    j++
+  ) {
+    if (
+      like[i].dataset.likeid.slice(1, -1).replace(/\"/gi, "").split(",")[j] ===
+      like[i].dataset.userid
+    ) {
+      like[i].style.color = "tomato";
+    }
+  }
 }
