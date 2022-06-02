@@ -388,6 +388,65 @@ html {
   cursor: pointer;
 }
 
+.friendBox {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.friendBox_each {
+  width: 20%;
+  height: 100%;
+  padding: 15px 25px;
+  box-sizing: border-box;
+}
+.friendBox_each a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.friendBox_eachImg {
+  position: relative;
+  margin-bottom: 10px;
+}
+.friendBox_eachImg img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.friendBox_eachImg i {
+  font-size: 70px;
+  color: lightgray;
+}
+
+.friendBox_eachImg_plus {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+.profile {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px;
+  box-sizing: border-box;
+}
+
 .topProfile {
   display: flex;
   justify-content: center;
@@ -464,6 +523,7 @@ html {
   flex-direction: column;
   align-items: center;
   padding-bottom: 30px;
+  position: relative;
 }
 
 .botProfile_tags {
@@ -480,21 +540,9 @@ html {
 .botProfile_tags div i {
   margin-right: 10px;
 }
-
-.botProfile_tags_one {
+.botProfile_tags .botProfile_tags_one {
   border-top: 1px solid black;
-}
-.botProfile_tags_one i {
   color: black;
-}
-.botProfile_tags_one span {
-  color: black;
-}
-
-.profile_post {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 30px;
 }
 
 .uploadedBox {
@@ -502,6 +550,194 @@ html {
 }
 .uploadedBox img {
   width: 100%;
+}
+
+.followbox {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.followbox img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+.followbox i {
+  font-size: 50px;
+  color: lightgray;
+}
+.followbox span {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: dimgray;
+}
+
+.fa.fa-star-o {
+  padding: 0 20px;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.profile_post {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 70px;
+  position: absolute;
+  top: 0;
+}
+
+.profile_taged {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 70px;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+.profile_follow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 50px;
+  margin-top: 70px;
+  display: none;
+}
+
+.user__grid {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 100%;
+  min-height: 80vh;
+  margin-top: 100px;
+  top: 0;
+  padding-top: 100px;
+  align-items: center;
+}
+
+.userBox {
+  display: flex;
+  padding: 15px 0;
+  width: 80%;
+  min-width: 600px;
+  align-items: center;
+}
+
+.userBox__img {
+  margin-right: 15px;
+}
+.userBox__img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.userBox__img i {
+  color: gray;
+  font-size: 50px;
+}
+
+.userBox__ect {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: content-box;
+}
+.userBox__ect span {
+  font-size: 20px;
+  font-weight: 800;
+}
+.userBox__ect p {
+  color: gray;
+}
+
+.likeme {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.likeme h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.meelse {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.meelse i {
+  color: lightgray;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.me__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 30px;
+  align-items: center;
+}
+.me__content i {
+  font-size: 40px;
+  color: gray;
+  margin-right: 10px;
+}
+.me__content img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin: 0 10px;
+}
+
+.me__content__text {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.me__content__date {
+  font-size: 10px;
+  color: gray;
+}
+
+.likeyou {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.likeyou h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.likeyou h2 {
+  margin-bottom: 5px;
+}
+
+.youelse {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loginHome {
@@ -712,6 +948,11 @@ header {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.hedaerTitle a {
+  display: block;
+  width: fit-content;
+}
+
 .headerLogo {
   font-family: "Playfair Display", serif;
   font-size: 27px;
@@ -720,18 +961,11 @@ header {
 }
 
 .serach {
+  box-sizing: border-box;
   position: relative;
-  display: flex;
-}
-.serach .searchBox {
-  position: absolute;
-  left: 0;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: gray;
 }
 .serach .searchCancle {
   position: absolute;
@@ -746,13 +980,32 @@ header {
 }
 
 .search_Bar {
-  border: none;
-  background-color: whitesmoke;
+  box-sizing: border-box;
   height: 40px;
-  border-radius: 5px;
   width: 100%;
+  display: flex;
+  position: relative;
+}
+.search_Bar .fa.fa-search {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  left: 0;
+}
+.search_Bar input {
+  border: none;
+  box-sizing: border-box;
+  background-color: whitesmoke;
   padding-left: 40px;
+  padding-right: 20px;
   outline: none;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .tabbar {
@@ -761,13 +1014,20 @@ header {
   box-sizing: content-box;
   display: flex;
   align-items: center;
+  justify-content: right;
   color: darkgray;
-  justify-content: space-between;
   font-size: 20px;
+  right: 0;
+}
+.tabbar a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tabbar i {
   cursor: pointer;
   transition: ease-in-out color 0.3s;
+  margin-left: 10px;
 }
 .tabbar i:hover {
   color: black;

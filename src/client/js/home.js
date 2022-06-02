@@ -121,7 +121,7 @@ const clickTag = async (event) => {
     },
   });
   if (status === 201) {
-    icon.style.color = "#87bdd8";
+    icon.style.color = "black";
     alert("Taged:)");
   } else if (status === 202) {
     icon.style.color = "rgba(0, 0, 0, 0.7)";
@@ -199,7 +199,7 @@ for (let i = 0; i < tagIcon.length; i++) {
         j
       ] === tagIcon[i].dataset.userid
     ) {
-      tagIcon[i].style.color = "#87bdd8";
+      tagIcon[i].style.color = "black";
     }
   }
   for (

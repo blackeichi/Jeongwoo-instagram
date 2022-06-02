@@ -1,0 +1,29 @@
+extends base.pug
+include mixins/like/likeyou
+include mixins/like/likeme
+
+block content
+    include partials/header
+    if likeyou || likeme 
+        div.likeyou
+            h1 나의 활동
+            if likeyou.length !== 0
+                each you in likeyou
+                    +you(you)
+            else
+                div.youelse
+                    h2 🥺나의 활동이 없습니다.
+                    h2 다른 회원님의 게시물에 좋아요를 누르면 여기에 표시됩니다.
+        div.likeme
+            h1 나의 게시글
+            if likeme.length !== 0
+                each me in likeme
+                    +me(me)
+            else
+                div.meelse
+                    i.fa.fa-heart-o
+                    h2 다른 사람이 회원님의 게시물에 좋아요를 누르면 여기에 표시됩니다.
+    else 
+        i.fa.fa-heart-o
+        span 게시물 활동
+        span 다른 사람이 회원님의 게시물에 좋아요를 누르면 여기에 표시됩니다.

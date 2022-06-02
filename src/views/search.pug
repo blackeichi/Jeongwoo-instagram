@@ -1,0 +1,10 @@
+extends base.pug
+include mixins/user.pug
+
+block content
+    include partials/header
+    div.user__grid
+        each user in users 
+            +user(user)
+        else 
+            li Sorry, Nothing Founded

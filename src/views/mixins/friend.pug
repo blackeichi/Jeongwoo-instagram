@@ -1,0 +1,11 @@
+mixin friend(friend)
+    div.friendBox_each
+        a(href=`/profile/${friend._id}`)
+            div.friendBox_eachImg
+                if friend.avartarUrl
+                    img(src=friend.avartarUrl)
+                else 
+                    i.fa.fa-user-circle-o
+                div.friendBox_eachImg_plus
+                    span +
+            span=friend.id

@@ -20,6 +20,12 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+.hedaerTitle {
+  a {
+    display: block;
+    width: fit-content;
+  }
+}
 .headerLogo {
   font-family: "Playfair Display", serif;
   font-size: 27px;
@@ -27,18 +33,11 @@ header {
   user-select: none;
 }
 .serach {
+  box-sizing: border-box;
   position: relative;
   display: flex;
-  .searchBox {
-    position: absolute;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-  }
+  justify-content: center;
+  align-items: center;
   .searchCancle {
     position: absolute;
     right: 0;
@@ -51,14 +50,34 @@ header {
     cursor: pointer;
   }
 }
+
 .search_Bar {
-  border: none;
-  background-color: whitesmoke;
+  box-sizing: border-box;
   height: 40px;
-  border-radius: 5px;
   width: 100%;
-  padding-left: 40px;
-  outline: none;
+  display: flex;
+  position: relative;
+  .fa.fa-search {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    left: 0;
+  }
+  input {
+    border: none;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    padding-left: 40px;
+    padding-right: 20px;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+  }
 }
 .tabbar {
   padding-left: 50px;
@@ -66,12 +85,19 @@ header {
   box-sizing: content-box;
   display: flex;
   align-items: center;
+  justify-content: right;
   color: darkgray;
-  justify-content: space-between;
   font-size: 20px;
+  right: 0;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   i {
     cursor: pointer;
     transition: ease-in-out color 0.3s;
+    margin-left: 10px;
   }
   i:hover {
     color: black;

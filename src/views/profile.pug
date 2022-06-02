@@ -1,43 +1,55 @@
 extends base
-include mixins/uploaded
+include mixins/profile/uploaded
+include mixins/profile/follow
+include mixins/profile/taged
 
 block content
     include partials/header
-    div.topProfile
-        div.topProfile_pic
-            if loggedInUser.avartarUrl
-                img(src="/"+loggedInUser.avartarUrl)
-            else 
-                i.fa.fa-user-circle-o
-        div.topProfile_ect
-            div.topProfile_1
-                h1=loggedInUser.id
-                if loggedInUser._id === id
-                    a.profileLink(href="/edit") 프로필 편집
-                    a(href="/edit")
-                        i.fa.fa-cog
-            div.topProfile_2
-                div 
+    div.profile
+        div.topProfile
+            div.topProfile_pic
+                if user.avartarUrl
+                    img(src="/"+user.avartarUrl)
+                else 
+                    i.fa.fa-user-circle-o
+            div.topProfile_ect
+                div.topProfile_1
+                    h1=user.id
+                    if String(loggedInUser._id) === String(user._id)
+                        a.profileLink(href="/edit") 프로필 편집
+                        a(href="/edit")
+                            i.fa.fa-cog
+                    else 
+                        i.fa.fa-star-o#profile_followbtn(data-id=user._id,data-name=user.id ,data-myid = loggedInUser._id, data-follower = user.follower)
+                div.topProfile_2
+                    div 
+                        span 게시물
+                        span=uploads.length
+                    div 
+                        span 팔로워
+                        span=user.follower.length
+                    div 
+                        span 팔로우
+                        span=user.follow.length
+                span.topProfile_3=user.name
+        div.botProfile
+            div.botProfile_tags
+                div.botProfile_tags_one#tags_one
+                    i.fa.fa-th
                     span 게시물
-                    span=count
-                div 
-                    span 팔로워
-                    span 0
-                div 
-                    span 팔로우
-                    span 1
-            span.topProfile_3=loggedInUser.name
-    div.botProfile
-        div.botProfile_tags
-            div.botProfile_tags_one
-                i.fa.fa-th
-                span 게시물
-            div.botProfile_tags_two
-                i.fa.fa-star
-                span 저장됨
-            div.botProfile_tags_three
-                i.fa.fa-bookmark-o
-                span 태그됨
-        div.profile_post
-            each uploaded in uploads
-                +uploaded(uploaded)
+                div.botProfile_tags_two#tags_two
+                    i.fa.fa-star
+                    span 저장됨
+                div.botProfile_tags_three#tags_three
+                    i.fa.fa-bookmark-o
+                    span 태그됨
+            div.profile_post#profile_post
+                each uploaded in uploads
+                    +uploaded(uploaded)
+            div.profile_follow#profile_follow
+                each follow in user.follow
+                    +follow(follow)
+            div.profile_taged#profile_taged
+                each tag in user.tagedupload
+                    +tag(tag)
+    script(src="/static/js/profile.js")

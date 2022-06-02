@@ -8,6 +8,7 @@ export const like = async (req, res) => {
   const { _id } = req.session.user;
   const { id } = req.params;
   const post = await Upload.findById(id).populate("owner");
+  const receivedUser = await User.findById(post.owner._id);
   const user = await User.findById(_id);
   if (!post) {
     return res.sendStatus(402);
@@ -21,28 +22,27 @@ export const like = async (req, res) => {
   if (_id === String(post.owner)) {
     return res.sendStatus(403);
   }
-  await Like.create({
+  const like = await Like.create({
     owner: _id,
     upload: id,
+    receiver: post.owner._id,
   });
-  post.uploadLike.push(_id);
-  post.owner.loveMe.push(_id);
+  post.uploadlike.push(like);
   post.save();
-  user.likeUser.push(id);
+  receivedUser.likeuser.push(like);
+  receivedUser.save();
+  user.likeuser.push(like);
   user.save();
   return res.sendStatus(200);
 };
 export const deletePost = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const { _id } = req.session.user;
   const delUpload = await Upload.findById(id)
     .populate("taged")
-    .populate("uploadLike");
-  const like = await User.find({ likeUser: id });
-  const tag = await User.find({ tagedUpload: id });
-  console.log(like);
-  console.log(tag);
+    .populate("uploadlike")
+    .populate("uploadcomment");
+
   if (!delUpload) {
     return res.sendStatus(402);
   }
@@ -50,12 +50,11 @@ export const deletePost = async (req, res) => {
     return res.sendStatus(403);
   }
   await Upload.findByIdAndDelete(id);
+  const user = await User.findById(_id);
+  user.upload.pop(delUpload);
+  user.save();
   await Like.deleteMany({ upload: id });
   await Comment.deleteMany({ upload: id });
-  like.likeUser.pop(id);
-  like.save();
-  tag.tagedUpload.pop(id);
-  tag.save();
   return res.sendStatus(201);
 };
 
@@ -73,9 +72,9 @@ export const commentPost = async (req, res) => {
   });
   const user = await User.findById(owner);
   const upload = await Upload.findById(id);
-  user.commentUser.push(commentCreate._id);
+  user.commentuser.push(commentCreate._id);
   user.save();
-  upload.uploadComment.push(commentCreate._id);
+  upload.uploadcomment.push(commentCreate._id);
   upload.save();
   return res.sendStatus(201);
 };
@@ -85,15 +84,15 @@ export const tagPost = async (req, res) => {
   const { _id } = req.session.user;
   const user = await User.findById(_id);
   const upload = await Upload.findById(id);
-  const exists = await User.findOne({ $and: [{ _id }, { tagedUpload: id }] });
+  const exists = await User.findOne({ $and: [{ _id }, { tagedupload: id }] });
   if (exists) {
-    user.tagedUpload.pop(exists);
+    user.tagedupload.pop(exists);
     user.save();
     upload.taged.pop(_id);
     upload.save();
     return res.sendStatus(202);
   }
-  user.tagedUpload.push(id);
+  user.tagedupload.push(id);
   user.save();
   upload.taged.push(_id);
   upload.save();
@@ -111,8 +110,8 @@ export const postDetail = async (req, res) => {
   });
   const user = await User.findOne({ _id });
   const post = await Upload.findOne({ _id: postId });
-  user.commentUser.push(createComment);
-  post.uploadComment.push(createComment);
+  user.commentuser.push(createComment);
+  post.uploadcomment.push(createComment);
   user.save();
   post.save();
   return res.sendStatus(201);
@@ -120,21 +119,20 @@ export const postDetail = async (req, res) => {
 
 export const delComment = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const { _id } = req.session.user;
   const comment = await Comment.findById(id);
   const user = await User.findOne({ _id });
-  const post = await Upload.findOne({ _id: comment.upload._id });
+  const post = await Upload.findOne({ _id: comment.upload });
   if (!post) {
-    return;
+    return res.sendStatus(400);
   }
   if (!user) {
-    return;
+    return res.sendStatus(400);
   }
   await Comment.findByIdAndDelete(id);
-  user.commentUser.pop(comment);
+  user.commentuser.pop(comment);
   user.save();
-  post.uploadComment.pop(comment);
+  post.uploadcomment.pop(comment);
   post.save();
   return res.sendStatus(200);
 };

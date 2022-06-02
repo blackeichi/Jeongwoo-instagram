@@ -1,11 +1,14 @@
 extends base
 include mixins/post
+include mixins/friend
 
 block content
     include partials/header
     div.homeBox
         div.homeBox_one
             div.friendBox
+                each friend in users
+                    +friend(friend)
             div.postBox
                 each post in uploads
                     +post(post)

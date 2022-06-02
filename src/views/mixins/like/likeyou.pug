@@ -1,0 +1,13 @@
+mixin you(you)
+    div.me__content
+        div.me__content__text
+                if you.receiver.avartarUrl
+                    img(src="/"+you.receiver.avartarUrl)
+                else
+                    i.fa.fa-user-circle-o
+                span=you.receiver.id
+                span 님의
+                img(src="/"+you.upload.fileUrl)
+                span 에 좋아요😍를 누르셨습니다. 
+        div.me__content__date
+            span=you.createdAt

@@ -15,10 +15,10 @@ mixin post(post)
             div.postBottom_icons
                 div.postBottom_icons_one
                     span
-                        i.fa.fa-heart-o(data-id=post._id, data-num=post.uploadLike.length, data-likeid=post.uploadLike, data-userid = loggedInUser._id)
+                        i.fa.fa-heart-o(data-id=post._id, data-num=post.uploadlike.length, data-likeid=post.uploadlike, data-userid = loggedInUser._id)
                         div.postBottom_texts_like
                             p.likeP 좋아요
-                            p.likeP#likeNumber(style="font-weight:800")=post.uploadLike.length
+                            p.likeP#likeNumber(style="font-weight:800")=post.uploadlike.length
                             p.likeP 개
                     a(href=`/comments/${post._id}`)
                         span.comment
@@ -42,7 +42,7 @@ mixin post(post)
                     span=post.hashtags
                     a(href=`/comments/${post._id}`).postBottom_texts_ect_link
                         p 댓글
-                        p#commentsCount=post.uploadComment.length
+                        p#commentsCount=post.uploadcomment.length
                         p 개 모두 보기
                     span=post.createdAt
             form.postBottom_comments(data-id=post._id)

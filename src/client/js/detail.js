@@ -44,6 +44,12 @@ const deleteComment = async (event) => {
     },
     body: JSON.stringify({ post }),
   });
+  if (status === 400) {
+    alert("비정상적 접근입니다.");
+  } else if (status === 200) {
+    alert("댓글이 삭제되었습니다.");
+    location.reload();
+  }
 };
 
 const copyLink = () => {

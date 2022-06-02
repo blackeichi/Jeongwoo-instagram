@@ -1,0 +1,7 @@
+mixin follow(follow)
+    a(href="/profile/"+follow._id).followbox
+        if follow.avartarUrl
+            img(src="/"+follow.avartarUrl)
+        else
+            i.fa.fa-user-circle-o
+        span=follow.id

@@ -12,6 +12,8 @@ import {
   postEditP,
   profile,
   getDetail,
+  search,
+  getLike,
 } from "../controllers/globalController";
 import {
   avatarUpload,
@@ -52,5 +54,7 @@ globalRouter
   .route("/comments/:id([0-9a-f]{24})")
   .all(protectorMiddleware)
   .get(getDetail);
+globalRouter.get("/search", search);
+globalRouter.get("/like/:id([0-9a-f]{24})", getLike);
 
 export default globalRouter;

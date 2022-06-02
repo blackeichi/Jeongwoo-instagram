@@ -11,6 +11,7 @@ module.exports = {
     like: "./src/client/js/like.js",
     home: "./src/client/js/home.js",
     detail: "./src/client/js/detail.js",
+    profile: "./src/client/js/profile.js",
   },
   mode: "development",
   watch: true,

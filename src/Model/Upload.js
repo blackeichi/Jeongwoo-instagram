@@ -7,10 +7,8 @@ const uploadShema = new mongoose.Schema({
   createdAt: { type: Date, required: true, trim: true, default: Date.now },
   hashtags: [{ type: String, trim: true }],
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
-  uploadLike: [
-    { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
-  ],
-  uploadComment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  uploadlike: [{ type: mongoose.Schema.Types.ObjectId, ref: "Like" }],
+  uploadcomment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   taged: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 

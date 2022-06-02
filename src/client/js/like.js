@@ -29,15 +29,13 @@ const clickLike = async (event) => {
 
 for (let i = 0; i < like.length; i++) {
   like[i].addEventListener("click", clickLike);
-  for (
-    let j = 0;
-    j <
-    like[i].dataset.likeid.slice(1, -1).replace(/\"/gi, "").split(",").length;
-    j++
-  ) {
+  for (let j = 1; j < like[i].dataset.likeid.split(",").length; j += 4) {
     if (
-      like[i].dataset.likeid.slice(1, -1).replace(/\"/gi, "").split(",")[j] ===
-      like[i].dataset.userid
+      like[i].dataset.likeid
+        .slice(1, -1)
+        .replace(/\"/gi, "")
+        .split(",")
+        [j].slice(6) === like[i].dataset.userid
     ) {
       like[i].style.color = "tomato";
     }

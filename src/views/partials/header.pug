@@ -1,18 +1,18 @@
 header
     div.headerBox
-        h1.headerLogo#headerLogo Instagram
+        div.hedaerTitle
+            a(href="/home").headerLogo Instagram
         div.serach#serach
-            div.searchBox#searchBox  
+            form.search_Bar(method="GET", action = "/search") 
                 i.fa.fa-search
-            input.search_Bar(type="text" placeholder = "검색")
-            div.searchCancle#searchCancle
-                i.fa.fa-times
+                input(type="text" placeholder = "검색", name ="keyword")
         div.tabbar#tabbar
             a(href="/home") 
                 i.fa.fa-home
             a(href="/upload") 
-                i.fa.fa-plus-square-o 
-            i.fa.fa-heart
+                i.fa.fa-plus-square-o
+            a(href="/like/" +loggedInUser._id) 
+                i.fa.fa-heart
             a(href="/logout")
                 i.fa.fa-sign-out
             a(href="/profile/"+loggedInUser._id)

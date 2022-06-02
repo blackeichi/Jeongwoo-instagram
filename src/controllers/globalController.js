@@ -64,9 +64,11 @@ export const postJoin = async (req, res) => {
 export const getHome = async (req, res) => {
   const uploads = await Upload.find({})
     .sort({ createdAt: "desc" })
-    .populate("owner");
+    .populate("owner")
+    .populate("uploadlike");
   const { _id } = req.session.user;
-  return res.render("home", { uploads });
+  const users = await User.find({ _id: { $ne: _id } });
+  return res.render("home", { uploads, users });
 };
 export const logOut = (req, res) => {
   req.session.destroy();
@@ -85,16 +87,21 @@ export const postUpload = async (req, res) => {
     hashtags,
     owner: _id,
   });
+  const user = await User.findById(_id);
+  user.upload.push(uploaded);
+  user.save();
   return res.redirect("/home");
 };
 export const profile = async (req, res) => {
   const { id } = req.params;
-  const user = await User.findById(id);
+  const user = await User.findById(id)
+    .populate("tagedupload")
+    .populate("follow");
   if (!user) {
     return res.status(400).render("404", { errorMessage: "User not found." });
   }
   const uploads = await Upload.find({ owner: user._id });
-  return res.render("profile", { uploads, count: uploads.length, id });
+  return res.render("profile", { uploads, user });
 };
 export const getEditP = async (req, res) => {
   return res.render("edit");
@@ -159,4 +166,29 @@ export const getDetail = async (req, res) => {
     return res.render("home");
   }
   return res.render("detail", { comments, post: id });
+};
+
+export const search = async (req, res) => {
+  const keyword = req.query.keyword;
+  let users = [];
+  if (keyword) {
+    users = await User.find({
+      id: { $regex: new RegExp(keyword, "i") },
+    });
+  }
+  return res.render("search", { users });
+};
+export const getLike = async (req, res) => {
+  const { _id } = req.session.user;
+  const likeyou = await Like.find({
+    owner: _id,
+  })
+    .populate("receiver")
+    .populate("upload");
+  const likeme = await Like.find({
+    receiver: _id,
+  })
+    .populate("owner")
+    .populate("upload");
+  return res.render("like", { likeyou, likeme });
 };

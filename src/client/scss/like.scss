@@ -1,0 +1,79 @@
+.likeme {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+}
+.meelse {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+  i {
+    color: lightgray;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+.me__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 30px;
+  align-items: center;
+  i {
+    font-size: 40px;
+    color: gray;
+    margin-right: 10px;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin: 0 10px;
+  }
+}
+.me__content__text {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+.me__content__date {
+  font-size: 10px;
+  color: gray;
+}
+
+.likeyou {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-bottom: 5px;
+  }
+}
+.youelse {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
