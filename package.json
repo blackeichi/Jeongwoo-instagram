@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
+    "dev": "nodemon",
+    "assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -37,7 +41,8 @@
     "sharp": "^0.30.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "css-loader": "^6.7.1",

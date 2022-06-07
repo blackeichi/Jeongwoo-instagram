@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import mongoose, { mongo } from "mongoose";
+import regeneratorRuntime from "regenerator-runtime";
 
 const userSchema = new mongoose.Schema({
   avartarUrl: String,

@@ -1,5 +1,6 @@
 import { create } from "connect-mongo";
 import mongoose from "mongoose";
+import regeneratorRuntime from "regenerator-runtime";
 
 const uploadShema = new mongoose.Schema({
   fileUrl: { type: String, required: true },

@@ -13,8 +13,7 @@ module.exports = {
     detail: "./src/client/js/detail.js",
     profile: "./src/client/js/profile.js",
   },
-  mode: "development",
-  watch: true,
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
