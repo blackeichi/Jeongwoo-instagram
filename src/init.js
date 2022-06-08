@@ -18,7 +18,7 @@ const handleError = (error) => console.log("❌ Failed DB");
 db.on("error", handleError);
 db.once("open", handleOpen);
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 const logger = morgan("dev");
 app.set("view engine", "pug");
