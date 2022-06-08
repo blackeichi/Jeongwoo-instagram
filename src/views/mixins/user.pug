@@ -3,7 +3,7 @@ mixin user(user)
         a(href="/profile/"+user._id)
             div.userBox__img
                 if user.avartarUrl
-                    img(src="/"+user.avartarUrl)
+                    img(src=user.avartarUrl)
                 else 
                     i.fa.fa-user-circle-o
         a(href="/profile/"+user._id)

@@ -82,7 +82,7 @@ export const postUpload = async (req, res) => {
   const file = req.file;
   const { _id } = req.session.user;
   const uploaded = await Upload.create({
-    fileUrl: file ? file.path : fileUrl,
+    fileUrl: file ? file.location : fileUrl,
     text,
     hashtags,
     owner: _id,
@@ -125,7 +125,7 @@ export const postEditP = async (req, res) => {
         .render("edit", { errorMessage: "현재 비밀번호가 다릅니다." });
     } else {
       await User.findByIdAndUpdate(user._id, {
-        avartarUrl: file ? file.path : user.avartarUrl,
+        avartarUrl: file ? file.location : user.avartarUrl,
         name,
         id: username,
       });
@@ -142,13 +142,13 @@ export const postEditP = async (req, res) => {
       }
     }
     await User.findByIdAndUpdate(user._id, {
-      avartarUrl: file ? file.path : user.avartarUrl,
+      avartarUrl: file ? file.location : user.avartarUrl,
       name,
       id: username,
     });
     req.session.user = {
       ...req.session.user,
-      avartarUrl: file ? file.path : user.avartarUrl,
+      avartarUrl: file ? file.location : user.avartarUrl,
       name,
       id: username,
     };

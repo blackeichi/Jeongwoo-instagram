@@ -2,12 +2,12 @@ mixin me(me)
         div.me__content
             div.me__content__text
                 if me.owner.avartarUrl
-                    img(src="/"+me.owner.avartarUrl)
+                    img(src=me.owner.avartarUrl)
                 else
                     i.fa.fa-user-circle-o
                 span=me.owner.id
                 span 님께서 회원님의
-                img(src="/"+me.upload.fileUrl)
+                img(src=me.upload.fileUrl)
                 span 에 좋아요😍를 누르셨습니다.
             div.me__content__date
                 span=me.createdAt

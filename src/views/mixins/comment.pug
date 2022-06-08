@@ -1,7 +1,7 @@
 mixin comment(comment)
     div.comment_each
         if loggedInUser.avartarUrl
-            img.comment_eachAvartar(src="/" + comment.owner.avartarUrl)
+            img.comment_eachAvartar(src=comment.owner.avartarUrl)
         else 
             i.fa.fa-user-circle-o
         div.comment_eachContent

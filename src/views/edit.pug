@@ -5,7 +5,7 @@ block content
     div.formBox
         h3 (최대 용량은 5MB입니다.)
         if loggedInUser.avartarUrl
-            img(src="/"+loggedInUser.avartarUrl)#avatarImg
+            img(src=loggedInUser.avartarUrl)#avatarImg
         else
             div#avatarIcon
                 i.fa.fa-user-circle-o

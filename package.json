@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/blackeichi/Jeongwoo-instagram#readme",
   "dependencies": {
+    "aws-sdk": "^2.1150.0",
     "babel-loader": "^8.2.5",
     "bcrypt": "^5.0.1",
     "cnpm": "^7.1.1",
